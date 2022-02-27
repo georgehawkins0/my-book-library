@@ -40,6 +40,14 @@ public class Book{
         return available;
     }
 
+    public String getAuthor(){
+        return this.author;
+    }
+
+    public String getTitle(){
+        return this.title;
+    }
+
     public String GetName(){
         return title+" By "+author+" ("+year+")";
     }

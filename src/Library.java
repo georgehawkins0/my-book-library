@@ -27,4 +27,34 @@ public class Library {
     public static ArrayList<Book> returnBookList(){
         return books;
     }
+    public ArrayList<Book> search(String seachType, String searchQuery){
+        ArrayList<Book> foundBooks = new ArrayList<Book>(); // Create an ArrayList object
+        books = returnBookList();
+
+        for (Book bookInLoop : books) {
+            String author = bookInLoop.getAuthor();
+            author = author.toLowerCase();
+            String title = bookInLoop.getTitle();
+            title = title.toLowerCase();
+            String name = bookInLoop.GetName();
+            name = name.toLowerCase();
+            switch(seachType){
+                case("author"):{
+                    if (author.equals(searchQuery)){
+                        foundBooks.add(bookInLoop);
+                    }
+                }
+                case("title"):{
+                    if (title.equals(searchQuery)){
+                        foundBooks.add(bookInLoop);
+                    }
+                }
+            }
+            
+        }
+        return foundBooks; // just to make it fun ffs
+
+
+    }
 }
+
