@@ -10,6 +10,7 @@ public class Library {
     /**
      * This is a Parameterized Constructor for Library. It sets up the attributes/fields.
      * @param name Name of the library.
+     * @param creationTime The creation time of the Library.
      */
     public Library(String name){
         this.name = name;
@@ -31,6 +32,9 @@ public class Library {
         return books;
     }
 
+    /**
+     * A method to return general information about the object library.
+     */
     public String ReturnLibraryInformation(){
         String name = this.name;
         LocalDateTime creationTime = this.creationTime;
@@ -39,6 +43,12 @@ public class Library {
 
     }
 
+    /**
+     * A method to search through the arraylist that contains Book objects. 
+     * @param seachType The attribute you are searching through (title, author or ISBN)
+     * @param searchQuery The string you which you are seeing if there is a match for in the array, for when searching for title or author.
+     * @param searchQueryLong The long you which you are seeing if there is a match for in the array, for when searching for ISBN.
+     */
     public ArrayList<Book> search(String seachType, String searchQuery, long searchQueryLong){
         ArrayList<Book> foundBooks = new ArrayList<Book>(); // Create an ArrayList object
         books = returnBookList();

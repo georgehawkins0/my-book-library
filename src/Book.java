@@ -28,10 +28,8 @@ public class Book{
         this.available = available;
     }
 
-    public Book(){}
-
     /**
-     * Settr method for availble
+     * Settr method for availble. Not used currently.
      * @param available A bool value to show whether the book is currently availble for someone to borrow at the library.
      */
     public void SetAvailability(boolean availablity){
@@ -39,7 +37,7 @@ public class Book{
     }
 
     /**
-     * Gettr method for availble
+     * Gettr method for availble. Not used currently.
      * @param available A bool value to show whether the book is currently availble for someone to borrow at the library.
      */
     public boolean GetAvailability(){
