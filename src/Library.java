@@ -1,7 +1,9 @@
 import java.util.ArrayList;
+import java.time.LocalDateTime;
 
 public class Library {
     String name;
+    LocalDateTime creationTime;
 
     static ArrayList<Book> books = new ArrayList<Book>(); // Create an ArrayList object
 
@@ -11,6 +13,7 @@ public class Library {
      */
     public Library(String name){
         this.name = name;
+        this.creationTime = LocalDateTime.now();
     }
 
     /**
@@ -27,7 +30,16 @@ public class Library {
     public static ArrayList<Book> returnBookList(){
         return books;
     }
-    public ArrayList<Book> search(String seachType, String searchQuery){
+
+    public String ReturnLibraryInformation(){
+        String name = this.name;
+        LocalDateTime creationTime = this.creationTime;
+        int size = this.numberOfBooks();
+        return "Library "+name+" created on "+creationTime+" has "+size+" books.";
+
+    }
+
+    public ArrayList<Book> search(String seachType, String searchQuery, long searchQueryLong){
         ArrayList<Book> foundBooks = new ArrayList<Book>(); // Create an ArrayList object
         books = returnBookList();
 
@@ -38,14 +50,20 @@ public class Library {
             title = title.toLowerCase();
             String name = bookInLoop.GetName();
             name = name.toLowerCase();
+            long isbn = bookInLoop.getIsbn();
             switch(seachType){
                 case("author"):{
-                    if (author.equals(searchQuery)){
+                    if (author.equals(searchQuery)){ // you have to use .equals for strings
                         foundBooks.add(bookInLoop);
                     }
                 }
                 case("title"):{
                     if (title.equals(searchQuery)){
+                        foundBooks.add(bookInLoop);
+                    }
+                }
+                case("isbn"):{
+                    if (isbn == searchQueryLong){
                         foundBooks.add(bookInLoop);
                     }
                 }

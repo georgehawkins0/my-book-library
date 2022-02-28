@@ -1,3 +1,7 @@
+/**
+ * Book is a parent class to FictionBook and NonFictionBook.
+ */
+
 public class Book{   
     String title;
     String author;
@@ -24,6 +28,8 @@ public class Book{
         this.available = available;
     }
 
+    public Book(){}
+
     /**
      * Settr method for availble
      * @param available A bool value to show whether the book is currently availble for someone to borrow at the library.
@@ -47,7 +53,15 @@ public class Book{
     public String getTitle(){
         return this.title;
     }
+    
+    public long getIsbn(){
+        return this.isbn;
+    }
 
+
+    /**
+     * A method to return the name. This consists of title, author and year.
+     */
     public String GetName(){
         return title+" By "+author+" ("+year+")";
     }
